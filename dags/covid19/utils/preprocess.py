@@ -2,8 +2,6 @@
 Support file that contains all the functions in oderr to transform the data
 
 """
-
-
 def melt_dataframe(df, id_vars, value_vars, var_name, value_name):
     from pyspark.sql import functions as f
     # https://stackoverflow.com/questions/55378047/pyspark-dataframe-melt-columns-into-rows
