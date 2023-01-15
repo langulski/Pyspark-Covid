@@ -1,0 +1,8 @@
+{
+    "CONFIRMED_CASES_PATH": "data/raw/covid19/time_series_covid19_confirmed_global.csv",
+    "DEATHS_PATH": "data/raw/covid19/time_series_covid19_deaths_global.csv",
+    "PROCESSED_PATH": "data/processed/",
+    "RECOVERED_PATH": "data/raw/covid19/time_series_covid19_recovered_global.csv",
+    "REFINED_PATH": "data/refined",
+    "TRUSTED_PATH": "data/trusted"
+}
