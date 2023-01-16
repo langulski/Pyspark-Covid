@@ -1,5 +1,5 @@
 """
-Support file that contains all the functions in oderr to transform the data
+Support file that contains all the functions in order to transform the data
 
 """
 def melt_dataframe(df, id_vars, value_vars, var_name, value_name):
