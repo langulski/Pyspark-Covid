@@ -76,13 +76,11 @@ def transform_raw_data(input_path: str,
         .withColumnRenamed('Lat', 'latitude')\
         .withColumnRenamed('Long', 'longitude')
 
-    # sem registros significativos mesmo com subset
-    # df = df.dropna(subset=('pais','estado',variable_name))
+
     df = df.dropna()
-    # df =  df.dropDuplicates(["pais","estado","data",variable_name])
+
     print(df.show())
 
-    # print(f'data da execução {context.get("execution_date").strftime("%Y-%m-%d")}')
     df.coalesce(1).write.mode("overwrite").parquet(
         f'{output_path}/{variable_name}')
     spark.stop()
@@ -147,7 +145,6 @@ def create_refined_layer(input_path: str, output_path: str, columns_schema: dict
     df = df.withColumn('moving_avg_confirmed', f.avg(columns_schema.get("confirmed")).over(w))\
         .withColumn('moving_avg_deaths', f.avg(columns_schema.get("deaths")).over(w))\
         .withColumn('moving_avg_recovered', f.avg(columns_schema.get("recovered")).over(w))
-    print(df.show())
 
     df = df.withColumn("moving_avg_confirmed", df["moving_avg_confirmed"].cast(LongType()))\
         .withColumn("moving_avg_deaths", df["moving_avg_deaths"].cast(LongType()))\
