@@ -67,7 +67,6 @@ def transform_raw_data(input_path: str,
 
     df = df.withColumn(variable_name, df[variable_name].cast(LongType()))
 
-    # agrupamento nao necessário, não há instruções para isso
     # df = df.groupBy(var_cols).agg(f.sum(variable_name).alias(variable_name))
     df = df.withColumn('year', f.year('data'))\
         .withColumn('month', f.month('data'))
