@@ -33,11 +33,6 @@ def datecols(df):
 def transform_raw_data(input_path: str,
                        variable_name: str,
                        output_path: str):
-    """
-    Acabei dividindo de transformação para que aceita-se cada
-    arquivo individualmente
-
-    """
 
     from pyspark.sql import SparkSession
     from pyspark import SQLContext
